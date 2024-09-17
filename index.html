@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Сумма</title>
+	<script type="text/javascript">
+		function artanh(x, i) {
+			let S = 0; 
+
+			for (let n = 0; n <= i; n++) {
+				let abc = 1 / ((2 * n + 1) * Math.pow(x, 2 * n + 1)); 
+				S = S + abc; 
+			}
+			
+			return S;
+		}
+
+		function calc() {
+			let i = Number(document.forms["form"].elements["i"].value);
+			let x = Number(document.forms["form"].elements["x"].value);
+			let result = 0;
+
+			
+			if (Math.abs(x) > 1) {
+				result = artanh(x, i);
+				document.write(result);
+			} else {
+				document.write("Значение x должно быть больше 1.");
+			}
+		}
+	</script>
+</head>
+<body>
+	<section>
+		<div class="container">
+			<form id="form">
+				<input id="i" type="text" placeholder="Введите количество итераций">
+				<input id="x" type="text" placeholder="Введите x">
+				<input class="button" onclick="calc()" type="button" value="Отправить">
+			</form>
+		</div>
+	</section>
+</body>
+</html>
